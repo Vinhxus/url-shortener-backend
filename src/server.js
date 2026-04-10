@@ -5,7 +5,8 @@ const app = express();
 app.use(express.json());
 
 // TODO: replace with your own MongoDB connection string
-mongoose.connect("mongodb://127.0.0.1:27017/url_shortener");
+const dbURI = process.env.MONGODB_URI; 
+mongoose.connect(dbURI);
 
 const urlSchema = new mongoose.Schema({
   originalUrl: String,
